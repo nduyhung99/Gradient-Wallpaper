@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GradientWallpaper</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="collection">collection</string>
+    <string name="create">create</string>
+    <string name="saved">saved</string>
+</resources>
