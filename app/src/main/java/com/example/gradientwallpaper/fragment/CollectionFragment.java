@@ -115,6 +115,17 @@ public class CollectionFragment extends Fragment {
         list.add(new Gradient(R.drawable.gradient8,"Gradient name 8"));
         list.add(new Gradient(R.drawable.gradient9,"Gradient name 9"));
         list.add(new Gradient(R.drawable.gradient10,"Gradient name 10"));
+        list.add(new Gradient(R.drawable.gradient11,"Gradient name 11"));
+        list.add(new Gradient(R.drawable.gradient12,"Gradient name 12"));
+        list.add(new Gradient(R.drawable.gradient13,"Gradient name 13"));
+        list.add(new Gradient(R.drawable.gradient14,"Gradient name 14"));
+        list.add(new Gradient(R.drawable.gradient15,"Gradient name 15"));
+        list.add(new Gradient(R.drawable.gradient16,"Gradient name 16"));
+        list.add(new Gradient(R.drawable.gradient17,"Gradient name 17"));
+        list.add(new Gradient(R.drawable.gradient18,"Gradient name 18"));
+        list.add(new Gradient(R.drawable.gradient19,"Gradient name 19"));
+        list.add(new Gradient(R.drawable.gradient20,"Gradient name 20"));
+
         return list;
     }
 }

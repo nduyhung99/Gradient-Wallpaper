@@ -72,7 +72,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentColor1==0){
-                    Toast.makeText(CreateActivity.this,"Vui lòng chọn màu phía trước!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateActivity.this,R.string.choose_previous_color,Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     openDialog2(false);
@@ -83,7 +83,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentColor2==0){
-                    Toast.makeText(CreateActivity.this,"Vui lòng chọn màu phía trước!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateActivity.this,R.string.choose_previous_color,Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     openDialog3(false);
@@ -94,7 +94,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentColor3==0){
-                    Toast.makeText(CreateActivity.this,"Vui lòng chọn màu phía trước!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateActivity.this,R.string.choose_previous_color,Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     openDialog4(false);

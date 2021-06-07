@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">GradientWallpaper</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="collection">collection</string>
     <string name="create">create</string>
     <string name="saved">saved</string>
+    <string name="save_image_successfully">Save image successfully</string>
+    <string name="set_wallpaper_successfully">Set wallpaper successfully</string>
+    <string name="set_wallpaper_unsuccessfully">Set wallpaper unsuccessfully</string>
+    <string name="set_wallpaper">Set wallpaper</string>
+    <string name="set_phone_wallpaper">Set phone wallpaper</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="message_permission_needed">To use this feature, application permission is required</string>
+    <string name="choose_previous_color">choose_previous_color</string>
 </resources>

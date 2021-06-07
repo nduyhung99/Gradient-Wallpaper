@@ -71,9 +71,9 @@ public class NextActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(NextActivity.this)
-                        .setTitle("Cài đặt hình nền!")
-                        .setMessage("Cài đặt hình thành hình nền điện thoại.")
-                        .setPositiveButton("xác nhận", new DialogInterface.OnClickListener() {
+                        .setTitle(R.string.set_wallpaper)
+                        .setMessage(R.string.set_phone_wallpaper)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 setPhoneWallpaper();
@@ -81,7 +81,7 @@ public class NextActivity extends AppCompatActivity {
 //                                saveImage();
                             }
                         })
-                        .setNegativeButton("không", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
@@ -188,7 +188,7 @@ public class NextActivity extends AppCompatActivity {
 
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED
                 &&checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(this,"Permission granted",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,R.string.permission_granted,Toast.LENGTH_LONG).show();
             createDirectoty(folderName);
         }else {
             requestPermission();
@@ -200,9 +200,9 @@ public class NextActivity extends AppCompatActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE) || ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed because of this and that")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    .setTitle(R.string.permission_needed)
+                    .setMessage(R.string.message_permission_needed)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             ActivityCompat.requestPermissions(NextActivity.this,
@@ -210,7 +210,7 @@ public class NextActivity extends AppCompatActivity {
                                             Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_PERMISSION_CODE );
                         }
                     })
-                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -252,16 +252,17 @@ public class NextActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Toast.makeText(NextActivity.this,R.string.save_image_successfully,Toast.LENGTH_SHORT).show();
     }
     private void setPhoneWallpaper() {
         Bitmap bitmap=getViewBitmap(imageView);
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
         try {
             wallpaperManager.setBitmap(bitmap);
-            Toast.makeText(getApplicationContext(),"Cài hình nền thành công!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.set_wallpaper_successfully,Toast.LENGTH_SHORT).show();
         }
         catch(IOException e){
-            Toast.makeText(getApplicationContext(),"Cài hình nền thất bại!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.set_wallpaper_unsuccessfully,Toast.LENGTH_SHORT).show();
 
         }
     }

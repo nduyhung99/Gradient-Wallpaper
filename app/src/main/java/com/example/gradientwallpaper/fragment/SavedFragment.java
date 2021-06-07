@@ -1,13 +1,17 @@
 package com.example.gradientwallpaper.fragment;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,6 +86,7 @@ public class SavedFragment extends Fragment {
         view= inflater.inflate(R.layout.fragment_saved, container, false);
         rcvGradientSaved=view.findViewById(R.id.rcvGradientSaved);
         mGradientSavedAdapter=new GradientSavedAdapter(getActivity());
+        getFragmentManager().beginTransaction().detach(SavedFragment.this).attach(SavedFragment.this).commit();
 
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),2);
         rcvGradientSaved.setLayoutManager(gridLayoutManager);
@@ -124,4 +129,15 @@ public class SavedFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (Build.VERSION.SDK_INT >= 26) {
+            ft.setReorderingAllowed(false);
+        }
+        ft.detach(this).attach(this).commit();
+    }
+
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GradientWallpaper</string>
+    <string name="save_image_successfully">Lưu hình ảnh thành công</string>
+    <string name="set_wallpaper_successfully">Cài đặt hình nền thành công</string>
+    <string name="collection">Bộ sưu tập</string>
+    <string name="create">Tạo mới</string>
+    <string name="saved">Đã lưu</string>
+    <string name="set_wallpaper_unsuccessfully">Cài đặt hình nền thất bại</string>
+    <string name="set_wallpaper">Đặt làm hình nền</string>
+    <string name="set_phone_wallpaper">Cài đặt hình thành hình nền điện thoại</string>
+    <string name="ok">Xác nhận</string>
+    <string name="cancel">Không</string>
+    <string name="permission_granted">Đã cho phép quyền ứng dụng</string>
+    <string name="permission_needed">Yêu cầu cấp quyền</string>
+    <string name="message_permission_needed">Để sủ dụng tính năng này cần phải cấp quyền ứng dụng</string>
+    <string name="choose_previous_color">Vui lòng chọn màu phía trước</string>
+</resources>

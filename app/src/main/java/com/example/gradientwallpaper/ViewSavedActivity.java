@@ -48,9 +48,9 @@ public class ViewSavedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(ViewSavedActivity.this)
-                        .setTitle("Cài đặt hình nền!")
-                        .setMessage("Cài đặt hình thành hình nền điện thoại.")
-                        .setPositiveButton("xác nhận", new DialogInterface.OnClickListener() {
+                        .setTitle(R.string.set_wallpaper)
+                        .setMessage(R.string.set_phone_wallpaper)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 setPhoneWallpaper();
@@ -58,7 +58,7 @@ public class ViewSavedActivity extends AppCompatActivity {
 //                                saveImage();
                             }
                         })
-                        .setNegativeButton("không", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
@@ -113,10 +113,10 @@ public class ViewSavedActivity extends AppCompatActivity {
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
         try {
             wallpaperManager.setBitmap(bitmap);
-            Toast.makeText(getApplicationContext(),"Cài hình nền thành công!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.set_wallpaper_successfully,Toast.LENGTH_SHORT).show();
         }
         catch(IOException e){
-            Toast.makeText(getApplicationContext(),"Cài hình nền thất bại!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.set_wallpaper_unsuccessfully,Toast.LENGTH_SHORT).show();
 
         }
     }
