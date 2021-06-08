@@ -1,5 +1,6 @@
 package com.example.gradientwallpaper;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
@@ -219,6 +220,8 @@ public class CreateActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     win.setStatusBarColor(color);
                 }
+                straighten.setBackgroundColor(0);
+                twine.setBackgroundColor(0);
                 currentColor1=color;
                 colors[0]=currentColor1;
                 if (listColors.isEmpty()){
@@ -257,6 +260,8 @@ public class CreateActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     win.setStatusBarColor(color);
                 }
+                straighten.setBackgroundColor(0);
+                twine.setBackgroundColor(0);
                 currentColor2=color;
                 if (listColors.size()<2){
                     listColors.add(currentColor2);
@@ -298,6 +303,8 @@ public class CreateActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     win.setStatusBarColor(color);
                 }
+                straighten.setBackgroundColor(0);
+                twine.setBackgroundColor(0);
                 currentColor3=color;
                 if (listColors.size()<3){
                     listColors.add(currentColor3);
@@ -333,6 +340,11 @@ public class CreateActivity extends AppCompatActivity {
             public void onOk(AmbilWarnaDialog dialog, int color) {
                 Window win=getWindow();
                 win.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    win.setStatusBarColor(color);
+                }
+                straighten.setBackgroundColor(0);
+                twine.setBackgroundColor(0);
                 currentColor4=color;
                 if (listColors.size()<4){
                     listColors.add(currentColor4);

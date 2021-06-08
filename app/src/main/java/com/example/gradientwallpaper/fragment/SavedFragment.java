@@ -1,24 +1,32 @@
 package com.example.gradientwallpaper.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.example.gradientwallpaper.GradientSaved;
 import com.example.gradientwallpaper.GradientSavedAdapter;
+import com.example.gradientwallpaper.MainActivity;
 import com.example.gradientwallpaper.R;
 import com.example.gradientwallpaper.ViewSavedActivity;
 
@@ -37,7 +45,8 @@ public class SavedFragment extends Fragment {
     File[] listFile;
     private RecyclerView rcvGradientSaved;
     private GradientSavedAdapter mGradientSavedAdapter;
-    private List<GradientSaved> list1=new ArrayList<GradientSaved>();
+    private List<GradientSaved> list1 = new ArrayList<GradientSaved>();
+    SwipeRefreshLayout swipeRefreshLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,14 +92,19 @@ public class SavedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_saved, container, false);
-        rcvGradientSaved=view.findViewById(R.id.rcvGradientSaved);
-        mGradientSavedAdapter=new GradientSavedAdapter(getActivity());
-        getFragmentManager().beginTransaction().detach(SavedFragment.this).attach(SavedFragment.this).commit();
+        view = inflater.inflate(R.layout.fragment_saved, container, false);
+        rcvGradientSaved = view.findViewById(R.id.rcvGradientSaved);
+        mGradientSavedAdapter = new GradientSavedAdapter(getActivity());
+//        getFragmentManager().beginTransaction().detach(SavedFragment.this).attach(SavedFragment.this).commit();
 
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(getActivity(),2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         rcvGradientSaved.setLayoutManager(gridLayoutManager);
-        mGradientSavedAdapter.setData(getListGradientSaved());
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED){
+            mGradientSavedAdapter.setData(getListGradientSaved());
+        }else {
+            mGradientSavedAdapter.setData(list1);
+        }
         rcvGradientSaved.setAdapter(mGradientSavedAdapter);
         addEvents();
         return view;
@@ -100,9 +114,9 @@ public class SavedFragment extends Fragment {
         mGradientSavedAdapter.setOnItemClickListener(new GradientSavedAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                GradientSaved gradientSaved=list1.get(position);
-                Intent intent=new Intent(getActivity(), ViewSavedActivity.class);
-                intent.putExtra("GRADIENT_SAVED",gradientSaved);
+                GradientSaved gradientSaved = list1.get(position);
+                Intent intent = new Intent(getActivity(), ViewSavedActivity.class);
+                intent.putExtra("GRADIENT_SAVED", gradientSaved);
                 startActivity(intent);
             }
         });
@@ -112,32 +126,35 @@ public class SavedFragment extends Fragment {
         getFromSdcard();
         return list1;
     }
-    public void getFromSdcard()
-    {
-        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pictures/Gradient Wallpaper");
 
-        if (file.isDirectory())
-        {
+    public void getFromSdcard() {
+        File file = new File(android.os.Environment.getExternalStorageDirectory(), "Pictures/Gradient Wallpaper");
+
+        if (file.isDirectory()) {
             listFile = file.listFiles();
-
-
-            for (int i = 0; i < listFile.length; i++)
-            {
+            for (int i = 0; i < listFile.length; i++) {
 
                 list1.add(new GradientSaved(listFile[i].getAbsolutePath()));
+                mGradientSavedAdapter.notifyDataSetChanged();
 
             }
+
+
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        if (Build.VERSION.SDK_INT >= 26) {
-            ft.setReorderingAllowed(false);
-        }
-        ft.detach(this).attach(this).commit();
     }
 
+    //    @Override
+//    public void onStart() {
+//        super.onStart();
+//        FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        if (Build.VERSION.SDK_INT >= 26) {
+//            ft.setReorderingAllowed(false);
+//        }
+//        ft.detach(this).attach(this).commit();
+//    }
 }
