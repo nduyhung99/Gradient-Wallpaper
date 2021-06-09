@@ -36,12 +36,13 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
-    private ViewPager viewPager;
+    public static ViewPager viewPager;
     private static final int REQUEST_PERMISSION_CODE=1;
     String folderName="Gradient Wallpaper";
     DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
     SavedFragment savedFragment= new SavedFragment();
+    static ViewPagerAdapter viewPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        fragmentManager=getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.viewPager,savedFragment)
-                .show(savedFragment)
-                .commit();
+//        fragmentManager=getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.viewPager,savedFragment)
+//                .show(savedFragment)
+//                .commit();
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -67,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         bottomNavigationView.getMenu().findItem(R.id.item1).setChecked(true);
+                        break;
                     case 1:
                         bottomNavigationView.getMenu().findItem(R.id.item3).setChecked(true);
+                        break;
                 }
 
             }
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 ==PackageManager.PERMISSION_GRANTED){
                             createDirectoty(folderName);
                             viewPager.setCurrentItem(1);
+                            savedFragment.onResume();
                         }else {
                             checkStoragePermission();
                         }
@@ -112,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private void addControls() {
         bottomNavigationView=findViewById(R.id.bottom_nav);
         viewPager=findViewById(R.id.viewPager);
-        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),
+        viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),
                 FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(viewPagerAdapter);
         drawerLayout=findViewById(R.id.drawerLayout);
@@ -202,5 +206,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         closeDrawer(drawerLayout);
+    }
+    public void transactFragment(Fragment fragment, boolean reload) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        if (reload) {
+            getSupportFragmentManager().popBackStack();
+        }
+        transaction.replace(R.id.viewPager, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainActivity.refreshFragments();
+    }
+    public static void refreshFragments(){
+       viewPager.setAdapter(viewPagerAdapter);
     }
 }

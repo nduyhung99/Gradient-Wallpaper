@@ -147,14 +147,4 @@ public class SavedFragment extends Fragment {
     public void onResume() {
         super.onResume();
     }
-
-    //    @Override
-//    public void onStart() {
-//        super.onStart();
-//        FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        if (Build.VERSION.SDK_INT >= 26) {
-//            ft.setReorderingAllowed(false);
-//        }
-//        ft.detach(this).attach(this).commit();
-//    }
 }
