@@ -1,6 +1,5 @@
 package com.example.gradientwallpaper;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -12,10 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,7 +20,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -32,7 +27,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -40,7 +34,7 @@ public class ViewCollectionActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSION_CODE = 1;
     RelativeLayout layoutView;
-    ImageButton btnBack,btnSave,btnApply;
+    ImageView btnBack,btnSave,btnApply;
     String folderName="Gradient Wallpaper";
     OutputStream outputStream;
     ImageView imageView;
@@ -190,7 +184,7 @@ public class ViewCollectionActivity extends AppCompatActivity {
     private void addControls() {
         layoutView=findViewById(R.id.layoutView);
         btnApply=findViewById(R.id.btnApply);
-        btnBack=findViewById(R.id.btnBack);
+        btnBack=findViewById(R.id.btnBack1);
         btnSave=findViewById(R.id.btnSave);
         imageView=findViewById(R.id.imageView);
         Intent intent=getIntent();

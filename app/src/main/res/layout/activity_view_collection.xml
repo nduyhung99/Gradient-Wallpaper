@@ -11,34 +11,59 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"/>
-
-    <ImageButton
-        android:id="@+id/btnBack"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_toLeftOf="@+id/btnSave"
-        android:backgroundTint="@color/black"
-        app:srcCompat="@drawable/back" />
-
-    <ImageButton
-        android:id="@+id/btnSave"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="25dp">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/save"
+            android:background="#9E7979"
+            android:padding="7dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/btnSave"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/black"
-        app:srcCompat="@drawable/save" />
-
-    <ImageButton
-        android:id="@+id/btnApply"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="25dp"
+        android:layout_toRightOf="@+id/cardSave">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/apply"
+            android:background="#9E7979"
+            android:padding="7dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/btnApply"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btnSave"
+        android:id="@+id/cardHome"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/black"
-        app:srcCompat="@drawable/apply" />
+        android:layout_marginBottom="30dp"
+        android:layout_toLeftOf="@+id/cardSave"
+        app:cardCornerRadius="25dp">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/back"
+            android:background="#9E7979"
+            android:padding="7dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/btnBack1"/>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

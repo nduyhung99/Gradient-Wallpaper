@@ -136,15 +136,8 @@ public class SavedFragment extends Fragment {
 
                 list1.add(new GradientSaved(listFile[i].getAbsolutePath()));
                 mGradientSavedAdapter.notifyDataSetChanged();
-
             }
-
-
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 }

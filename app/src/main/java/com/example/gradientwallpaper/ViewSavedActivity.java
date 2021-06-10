@@ -100,7 +100,7 @@ public class ViewSavedActivity extends AppCompatActivity {
         layout=findViewById(R.id.layout);
         imageView=findViewById(R.id.imageView);
         btnApply=findViewById(R.id.btnApply);
-        btnBack=findViewById(R.id.btnBack);
+        btnBack=findViewById(R.id.btnBack1);
         btnShare=findViewById(R.id.btnShare);
         Intent intent=getIntent();
         GradientSaved gradientSaved= (GradientSaved) intent.getSerializableExtra("GRADIENT_SAVED");

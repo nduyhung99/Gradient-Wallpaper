@@ -1,13 +1,10 @@
 package com.example.gradientwallpaper;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,8 +15,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +23,7 @@ import yuku.ambilwarna.AmbilWarnaDialog;
 import static android.content.ContentValues.TAG;
 
 public class CreateActivity extends AppCompatActivity {
-    ImageView btnBack, color1, color2, color3, color4, straighten,twine,view,next;
+    ImageView btnBack1, color1, color2, color3, color4, straighten,twine,view,next;
     ImageView imageGradient;
     int currentColor;
     private int currentColor1,currentColor2,currentColor3,currentColor4,tra,twi,currenWay;
@@ -48,16 +43,10 @@ public class CreateActivity extends AppCompatActivity {
         addEvents();
         colors=new int[4];
         listColors=new ArrayList<Integer>();
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void addEvents() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnBack1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -195,7 +184,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void addControls() {
-        btnBack=findViewById(R.id.btnBack);
+        btnBack1=findViewById(R.id.btnBack1);
         color1=findViewById(R.id.color1);
         color2=findViewById(R.id.color2);
         color3=findViewById(R.id.color3);

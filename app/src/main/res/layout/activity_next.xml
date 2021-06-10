@@ -9,38 +9,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"/>
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/save"
-        android:background="@color/black"
-        android:scaleType="center"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/save"/>
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/apply"
-        android:src="@drawable/apply"
-        android:background="@color/black"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_25sdp">
+        <ImageView
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/save"
+            android:background="#9E7979"
+            android:padding="@dimen/_7sdp"
+            android:scaleType="centerCrop"
+            android:id="@+id/save"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_toRightOf="@+id/save"/>
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/home"
-        android:src="@drawable/home"
-        android:background="@color/black"
+        android:layout_marginBottom="@dimen/_30sdp"
+        app:cardCornerRadius="@dimen/_25sdp"
+        android:layout_toRightOf="@+id/cardSave">
+        <ImageView
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/apply"
+            android:background="#9E7979"
+            android:padding="@dimen/_7sdp"
+            android:scaleType="centerCrop"
+            android:id="@+id/apply"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardHome"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_toLeftOf="@+id/save"/>
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_toLeftOf="@+id/cardSave"
+        app:cardCornerRadius="@dimen/_25sdp">
+        <ImageView
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/home"
+            android:background="#9E7979"
+            android:padding="@dimen/_7sdp"
+            android:scaleType="centerCrop"
+            android:id="@+id/home"/>
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>
