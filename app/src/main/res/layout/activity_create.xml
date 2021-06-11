@@ -9,15 +9,15 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/backblack"
+        android:src="@drawable/ic_black_back"
         android:id="@+id/btnBack1"
-        android:layout_margin="10dp"/>
+        android:layout_margin="@dimen/_10sdp"/>
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="540dp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_440sdp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="@dimen/_8sdp">
 
         <ImageView
             android:id="@+id/imageGradient"
@@ -25,17 +25,17 @@
             android:layout_height="match_parent" />
     </androidx.cardview.widget.CardView>
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:src="@drawable/next"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:visibility="gone"
             android:id="@+id/next"/>
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/view"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_eye"
             android:layout_centerHorizontal="true"
             android:scaleType="centerInside"
             android:visibility="gone"
@@ -43,62 +43,74 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/color1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
             android:scaleType="centerInside"
             app:shapeAppearanceOverlay="@style/roundimageview"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            app:srcCompat="@drawable/add" />
+            android:padding="@dimen/_5sdp"
+            android:background="#EDEAEA"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:src="@drawable/ic_add"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/color2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
             android:layout_toRightOf="@+id/color1"
             android:scaleType="centerInside"
+            android:layout_marginBottom="@dimen/_4sdp"
             app:shapeAppearanceOverlay="@style/roundimageview"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            app:srcCompat="@drawable/add"/>
+            android:padding="@dimen/_5sdp"
+            android:background="#EDEAEA"
+            android:src="@drawable/ic_add"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/color3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
             android:scaleType="centerInside"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/color2"
-            android:layout_margin="5dp"
+            android:padding="@dimen/_5sdp"
+            android:background="#EDEAEA"
+            android:layout_marginBottom="@dimen/_4sdp"
             app:shapeAppearanceOverlay="@style/roundimageview"
-            app:srcCompat="@drawable/add"/>
+            android:src="@drawable/ic_add"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/color4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
             android:scaleType="centerInside"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/color3"
-            android:layout_margin="5dp"
+            android:padding="@dimen/_5sdp"
+            android:background="#EDEAEA"
+            android:layout_marginBottom="@dimen/_4sdp"
             app:shapeAppearanceOverlay="@style/roundimageview"
-            app:srcCompat="@drawable/add"/>
+            android:src="@drawable/ic_add"/>
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/straighten"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
+            android:src="@drawable/ic_traighten"
             android:layout_alignParentBottom="true"
             android:id="@+id/straighten"
-            android:layout_margin="5dp"
+            android:layout_marginBottom="@dimen/_4sdp"
             android:scaleType="centerInside"
+            android:background="#EDEAEA"
+            android:padding="@dimen/_5sdp"
             app:shapeAppearanceOverlay="@style/roundimageview"
             android:layout_alignParentRight="true" />
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/_41sdp"
+            android:layout_height="@dimen/_41sdp"
             android:scaleType="centerInside"
-            android:src="@drawable/twine"
-            android:layout_margin="5dp"
+            android:src="@drawable/ic_twine"
+            android:padding="@dimen/_5sdp"
+            android:background="#EDEAEA"
+            android:layout_marginBottom="@dimen/_4sdp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@id/straighten"
             app:shapeAppearanceOverlay="@style/roundimageview"

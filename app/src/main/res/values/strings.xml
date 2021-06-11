@@ -16,4 +16,8 @@
     <string name="permission_needed">Permission needed</string>
     <string name="message_permission_needed">To use this feature, application permission is required</string>
     <string name="choose_previous_color">choose_previous_color</string>
+    <string name="already_saved">Already saved</string>
+    <string name="permission_denied">Memory access is not allowed</string>
+    <string name="rating_successfully">Rating successfully</string>
+    <string name="exit">Exit</string>
 </resources>

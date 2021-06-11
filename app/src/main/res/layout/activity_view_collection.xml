@@ -17,16 +17,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        app:cardCornerRadius="25dp">
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        app:cardCornerRadius="@dimen/_25sdp">
         <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/save"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_save"
             android:background="#9E7979"
-            android:padding="7dp"
+            android:padding="@dimen/_7sdp"
             android:scaleType="centerCrop"
             android:id="@+id/btnSave"/>
     </androidx.cardview.widget.CardView>
@@ -35,15 +35,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        app:cardCornerRadius="25dp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        app:cardCornerRadius="@dimen/_25sdp"
         android:layout_toRightOf="@+id/cardSave">
         <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/apply"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_apply"
             android:background="#9E7979"
-            android:padding="7dp"
+            android:padding="@dimen/_7sdp"
             android:scaleType="centerCrop"
             android:id="@+id/btnApply"/>
     </androidx.cardview.widget.CardView>
@@ -53,15 +53,15 @@
         android:id="@+id/cardHome"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/_40sdp"
         android:layout_toLeftOf="@+id/cardSave"
-        app:cardCornerRadius="25dp">
+        app:cardCornerRadius="@dimen/_25sdp">
         <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/back"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_back"
             android:background="#9E7979"
-            android:padding="7dp"
+            android:padding="@dimen/_7sdp"
             android:scaleType="centerCrop"
             android:id="@+id/btnBack1"/>
     </androidx.cardview.widget.CardView>

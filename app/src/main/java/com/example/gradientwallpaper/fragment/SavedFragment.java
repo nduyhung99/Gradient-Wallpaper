@@ -132,7 +132,7 @@ public class SavedFragment extends Fragment {
 
         if (file.isDirectory()) {
             listFile = file.listFiles();
-            for (int i = 0; i < listFile.length; i++) {
+            for (int i = (listFile.length-1); i >= 0; i--) {
 
                 list1.add(new GradientSaved(listFile[i].getAbsolutePath()));
                 mGradientSavedAdapter.notifyDataSetChanged();

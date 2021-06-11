@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -27,6 +28,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -35,13 +38,24 @@ public class ViewCollectionActivity extends AppCompatActivity {
     private static final int REQUEST_PERMISSION_CODE = 1;
     RelativeLayout layoutView;
     ImageView btnBack,btnSave,btnApply;
-    String folderName="Gradient Wallpaper";
+    String folderName="Gradient Wallpaper",imageName;
     OutputStream outputStream;
     ImageView imageView;
+    static ArrayList<String> gradientName=new ArrayList<String>();
     private static Gradient gradient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        View decorView = window.getDecorView();
+        decorView.setSystemUiVisibility(1792);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window2 = getWindow();
+            window2.setNavigationBarColor(0);
+            window.addFlags(Integer.MIN_VALUE);
+            window.clearFlags(67108864);
+            window.setStatusBarColor(0);
+        }
         setContentView(R.layout.activity_view_collection);
         addControls();
         addEvents();
@@ -105,28 +119,33 @@ public class ViewCollectionActivity extends AppCompatActivity {
     }
 
     private void saveImage() {
-        Bitmap bitmap1=getViewBitmap(imageView);
-        String fileName=String.format("%d.png",System.currentTimeMillis());
-        File outFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
-                +"/Pictures/"+folderName,fileName);
-        try {
-            outputStream=new FileOutputStream(outFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if (gradientName.contains(imageName)==true){
+            Toast.makeText(ViewCollectionActivity.this,R.string.already_saved,Toast.LENGTH_SHORT).show();
+        }else{
+            gradientName.add(imageName);
+            Bitmap bitmap1=getViewBitmap(imageView);
+            String fileName=String.format("%s.png",imageName);
+            File outFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath()
+                    +"/Pictures/"+folderName,fileName);
+            try {
+                outputStream=new FileOutputStream(outFile);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            bitmap1.compress(Bitmap.CompressFormat.PNG,100,outputStream);
+            try {
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(outFile)));
+            Toast.makeText(ViewCollectionActivity.this,R.string.save_image_successfully,Toast.LENGTH_SHORT).show();
         }
-        bitmap1.compress(Bitmap.CompressFormat.PNG,100,outputStream);
-        try {
-            outputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(outFile)));
-        Toast.makeText(ViewCollectionActivity.this,R.string.save_image_successfully,Toast.LENGTH_SHORT).show();
     }
 
     private void createDirectoty(String folderName) {
@@ -190,6 +209,7 @@ public class ViewCollectionActivity extends AppCompatActivity {
         Intent intent=getIntent();
         gradient= (Gradient) intent.getSerializableExtra("GRADIENT");
         int gradientColor=gradient.getResGradient();
+        imageName=gradient.getName();
         layoutView.setBackground(getResources().getDrawable(gradient.getResGradient()));
         imageView.setImageDrawable(getResources().getDrawable(gradient.getResGradient()));
     }

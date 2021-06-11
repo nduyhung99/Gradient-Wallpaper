@@ -5,23 +5,25 @@
     android:orientation="vertical">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="16dp"
+        android:layout_height="@dimen/_155sdp"
         android:onClick="clickLogo"
-        android:src="@drawable/ic_baseline_android_24"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/gradient_logo"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gradient wallpaper"
         android:textAlignment="center"
+        android:layout_marginTop="@dimen/_8sdp"
         android:gravity="center_horizontal"
-        android:textSize="20dp"
+        android:textSize="@dimen/_16sdp"
         android:textColor="@color/black" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginLeft="@dimen/_14sdp"
+        android:layout_marginRight="@dimen/_14sdp"
         android:background="#817575"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,15 +36,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Feedback"
-            android:padding="12dp"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/black"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:src="@drawable/ic_feedback"/>
     </LinearLayout>
     <LinearLayout
@@ -57,14 +59,14 @@
             android:layout_weight="1"
             android:text="Rate"
             android:textColor="@color/black"
-            android:padding="12dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:padding="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:src="@drawable/ic_rate"/>
     </LinearLayout>
     <LinearLayout
@@ -78,16 +80,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Share"
-            android:padding="12dp"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/black"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:src="@drawable/ic_share" />
     </LinearLayout>
     <LinearLayout
@@ -101,16 +103,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="More Apps"
-            android:padding="12dp"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/black"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:src="@drawable/ic_more_apps"/>
     </LinearLayout>
     <LinearLayout
@@ -124,16 +126,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Privacy Policy"
-            android:padding="12dp"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/black"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginLeft="@dimen/_14sdp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:src="@drawable/ic_privacy_policy"/>
     </LinearLayout>
     <TextView
@@ -142,6 +144,6 @@
         android:text="version 1.0.0"
         android:layout_gravity="center"
         android:textColor="@color/black"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="@dimen/_16sdp"/>
 
 </LinearLayout>

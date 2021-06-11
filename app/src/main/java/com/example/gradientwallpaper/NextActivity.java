@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -43,6 +44,16 @@ public class NextActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        View decorView = window.getDecorView();
+        decorView.setSystemUiVisibility(1792);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window2 = getWindow();
+            window2.setNavigationBarColor(0);
+            window.addFlags(Integer.MIN_VALUE);
+            window.clearFlags(67108864);
+            window.setStatusBarColor(0);
+        }
         setContentView(R.layout.activity_next);
         addControls();
         addEvents();

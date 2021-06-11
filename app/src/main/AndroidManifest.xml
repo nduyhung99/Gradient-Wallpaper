@@ -13,12 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradientWallpaper">
-        <activity android:name=".ViewSavedActivity"></activity>
-        <activity android:name=".NextActivity" />
-        <activity android:name=".ViewActivity" />
-        <activity android:name=".ViewCollectionActivity" />
-        <activity android:name=".CreateActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ViewSavedActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".NextActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ViewCollectionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

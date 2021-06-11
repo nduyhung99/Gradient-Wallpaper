@@ -8,21 +8,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.gradientwallpaper.fragment.CollectionFragment;
 import com.example.gradientwallpaper.fragment.SavedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hsalf.smileyrating.SmileyRating;
 
 import java.io.File;
 
@@ -36,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setThemeColor(Color.WHITE,Color.WHITE,false,false);
         setContentView(R.layout.activity_main);
         addControls();
         addEvents();
@@ -59,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                                 createDirectoty(folderName);
                                 selectedFragment=new SavedFragment();
                             }else {
+                                Toast.makeText(MainActivity.this,R.string.message_permission_needed,Toast.LENGTH_LONG).show();
                                 checkPermission();
                             }
 
@@ -162,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         sendFeedback(MainActivity.this,"App quá đẹp!");
     }
     public void clickRate(View view){
-        Toast.makeText(MainActivity.this,"Rate",Toast.LENGTH_SHORT).show();
+        showRatingDialog();
     }
     public void clickShare(View view){
         shareApp(MainActivity.this);
@@ -198,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SavedFragment()).commit();
             }else{
-                Toast.makeText(MainActivity.this,"permission denied",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,R.string.permission_denied,Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -265,5 +274,69 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+    public void setThemeColor(int colorNavigation, int colorStatusBar, boolean topLight, boolean botLight) {
+        int decor = 0;
+        if (!topLight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            decor = decor | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        if (!botLight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            decor = decor | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(colorNavigation);
+            getWindow().setStatusBarColor(colorStatusBar);
+        }
+        getWindow().getDecorView().setSystemUiVisibility(decor);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        showRatingDialog();
+    }
+
+    private void showRatingDialog() {
+        Dialog dialog=new Dialog(this);
+        dialog.setContentView(R.layout.custom_dialog_layout);
+        dialog.getWindow().setLayout(getWindowWidth()-50,LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        SmileyRating rating=dialog.findViewById(R.id.smileyRating);
+        rating.setSmileySelectedListener(new SmileyRating.OnSmileySelectedListener() {
+            @Override
+            public void onSmileySelected(SmileyRating.Type type) {
+                Toast.makeText(MainActivity.this,R.string.rating_successfully,Toast.LENGTH_SHORT).show();
+                switch (type){
+                    case TERRIBLE:
+                        break;
+                    case BAD:
+                        break;
+                    case OKAY:
+                        break;
+                    case GOOD:
+                        break;
+                    case GREAT:
+                        break;
+                }
+
+            }
+        });
+        dialog.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.findViewById(R.id.btnExit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+            }
+        });
+        dialog.show();
+    }
+
+    private int getWindowWidth() {
+        DisplayMetrics metrics=new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return metrics.widthPixels;
     }
 }

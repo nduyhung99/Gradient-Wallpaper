@@ -15,4 +15,8 @@
     <string name="permission_needed">Yêu cầu cấp quyền</string>
     <string name="message_permission_needed">Để sủ dụng tính năng này cần phải cấp quyền ứng dụng</string>
     <string name="choose_previous_color">Vui lòng chọn màu phía trước</string>
+    <string name="already_saved">Ảnh đã được lưu trước rồi</string>
+    <string name="permission_denied">Chưa cho phép quyền truy cập bộ nhớ</string>
+    <string name="rating_successfully">Bình chọn thành công</string>
+    <string name="exit">Thoát</string>
 </resources>

@@ -12,9 +12,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -32,6 +34,16 @@ public class ViewSavedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        View decorView = window.getDecorView();
+        decorView.setSystemUiVisibility(1792);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window2 = getWindow();
+            window2.setNavigationBarColor(0);
+            window.addFlags(Integer.MIN_VALUE);
+            window.clearFlags(67108864);
+            window.setStatusBarColor(0);
+        }
         setContentView(R.layout.activity_view_saved);
         addControls();
         addEvents();
@@ -106,7 +118,8 @@ public class ViewSavedActivity extends AppCompatActivity {
         GradientSaved gradientSaved= (GradientSaved) intent.getSerializableExtra("GRADIENT_SAVED");
         String imagePath=gradientSaved.getImagePath();
         Bitmap myBitmap = BitmapFactory.decodeFile(imagePath);
-        imageView.setImageBitmap(myBitmap);
+        Drawable myDrawable= new BitmapDrawable(getResources(),myBitmap);
+        imageView.setImageDrawable(myDrawable);
     }
     private void setPhoneWallpaper() {
         Bitmap bitmap=getViewBitmap(imageView);
